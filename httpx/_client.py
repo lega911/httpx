@@ -157,6 +157,8 @@ class BoundSyncStream(SyncByteStream):
         elapsed = time.perf_counter() - self._start
         self._response.elapsed = datetime.timedelta(seconds=elapsed)
         self._stream.close()
+        self._stream = None
+        self._response = None
 
 
 class BoundAsyncStream(AsyncByteStream):
